@@ -8,7 +8,7 @@ public class Administration {
 	private int zipCode = 0;
 	private String state = "";
 	private String userName = "";
-	private String paswword = "";
+	private String password = "";
 	private String email = "";
 	private String socialSecurity = "";
 	private String securityQuestion = "";
@@ -16,8 +16,17 @@ public class Administration {
 	
 	
 	//methods of Class 
-	public Administration () {
-		
+	public Administration (String firstName, String lastName, String address, int zipCode, String state, String userName, String password, String socialSecurity, String securityQuestion) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.zipCode = zipCode; 
+		this.state = state;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.socialSecurity = socialSecurity;
+		this.securityQuestion = securityQuestion;
 		
 	}
 	public void searchFlight (String startCity, String endCity, String date, String time) {

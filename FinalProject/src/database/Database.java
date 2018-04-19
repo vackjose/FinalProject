@@ -15,7 +15,7 @@ public class Database {
 			String driver = "com.mysql.jdbc.Driver";
 			String url = "jdbc:mysql://localhost:3306/sys";
 			String username = "root";
-			String password = "Alexander1";
+			String password = "Hjbjhjbj23184";
 			Class.forName(driver);
 
 			Connection conn = DriverManager.getConnection(url, username, password);
@@ -28,5 +28,6 @@ public class Database {
 		}
 		return null;
 	}
+	
 
 }
