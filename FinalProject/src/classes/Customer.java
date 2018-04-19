@@ -1,4 +1,9 @@
 package classes;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
 
 public class Customer extends Administration {
 	private String firstName = "";
@@ -13,5 +18,5 @@ public class Customer extends Administration {
 	private String securityQuestion = "";
 	private String[] flightsBooked = new String[100];
 
-
+	private String test;
 }
