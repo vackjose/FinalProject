@@ -84,8 +84,5 @@ public class Database {
 		return null;
 	}
 
-	public static void InsertData(String firstName, String lastName) {
-
-	}
 
 }
