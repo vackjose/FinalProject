@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Database {
 	public static Connection conn;
-	private static String sql = "";
+	public static String sql = "";
 
 	public static void main(String[] args) throws Exception {
 		getConnection();
