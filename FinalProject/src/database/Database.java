@@ -3,67 +3,33 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Database {
 	public static Connection conn;
+	private static String sql = "";
 
 	public static void main(String[] args) throws Exception {
 		getConnection();
-
-		// INSERT DATA
-		try {
-
-			String sql = "insert into customer (socialSecurity, address, email, firstName, lastName, userName, flightsBooked,"
-					+ "state, zipCode,securityQuestion, paswword) values ('111223334', '123 dawson lane', 'jdoe@gmail.com', 'John', 'Doe', "
-					+ "'jdoe123', '5', 'GA', '30303', 'First pet?', 'gsustudent')";
-			PreparedStatement myStmt = conn.prepareStatement(sql);
-			myStmt.executeUpdate(sql);
-
-			System.out.println("Inserted Successfully");
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println("There is an error");
-		}
 		
-		// UPDATE DATA
-		try {
-
-			String sql = "update customer set email='doejohn42@yahoo.com' where socialSecurity=111223333";
-			PreparedStatement myStmt = conn.prepareStatement(sql);
-			myStmt.executeUpdate(sql);
-
-			System.out.println("Updated Successfully");
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println("There is an error");
-		}
+		Scanner input = new Scanner(System.in);
+		sql = input.nextLine(); 
 		
-		// DELETE DATA
-		try {
-
-			String sql = "delete from customer where socialSecurity=123231234";
-			PreparedStatement myStmt = conn.prepareStatement(sql);
-			myStmt.executeUpdate(sql);
-
-			System.out.println("Deleted Successfully");
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println("There is an error");
-		}
+		if (sql.contains("insert"))
+			Insert();
 		
-		//SELECT DATA
-		try {
-
-			String sql = "SELECT * from customer";
-			PreparedStatement myStmt = conn.prepareStatement(sql);
-			myStmt.executeQuery(sql);
-
-			System.out.println("DATA SELECTED:");
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println("There is an error");
-		}
+		if (sql.contains("update"))
+			Update();
+		
+		if (sql.contains("delete"))
+			Delete();
+		
+		if (sql.contains("select"))
+			Select();
+				
 	}
 
 	public static Connection getConnection() throws Exception {
@@ -83,6 +49,74 @@ public class Database {
 		}
 		return null;
 	}
+	
+	public static void Insert() {
+		// INSERT DATA
+				try {
+
+					PreparedStatement myStmt = conn.prepareStatement(sql);
+					myStmt.executeUpdate(sql);
+
+					System.out.println("Inserted Successfully");
+				} catch (Exception ex) {
+					ex.printStackTrace();				
+					System.out.println("There is an error"); 
+				}
+		
+	}
+	
+	public static void Update() {
+		// UPDATE DATA 
+				try {
+
+					PreparedStatement myStmt = conn.prepareStatement(sql);
+					myStmt.executeUpdate(sql);
+
+					System.out.println("Updated Successfully");
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					System.out.println("There is an error");
+				}
+	}
+	
+	public static void Delete() {
+		// DELETE DATA
+				try {
+
+					PreparedStatement myStmt = conn.prepareStatement(sql);
+					myStmt.executeUpdate(sql);
+
+					System.out.println("Deleted Successfully");
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					System.out.println("There is an error");
+				}
+	}
+	
+	public static void Select() {
+		//SELECT DATA
+				try {
+
+					PreparedStatement myStmt = conn.prepareStatement(sql);
+					
+					ResultSet result = myStmt.executeQuery(sql);
+
+					ArrayList<String> array = new ArrayList<String>();
+					System.out.println("DATA SELECTED:");
+					while(result.next()) {
+						System.out.print(result.getString(1) + "\t" + result.getString(2) + "\t" + result.getString(3) + "\t" + result.getString(4)
+						+ "\t" + result.getString(5) + "\t" + result.getString(6) + "\t" + result.getString(7) + "\t" + result.getString(8) + "\t" + result.getString(9)
+						+ "\t" + result.getString(10) + "\t" + result.getString(11));
+						System.out.println();
+						
+					}
+					
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					System.out.println("There is an error");
+				}
+	}
+	
 
 
 }

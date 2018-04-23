@@ -18,5 +18,4 @@ public class Customer extends Administration {
 	private String securityQuestion = "";
 	private String[] flightsBooked = new String[100];
 
-	private String test;
 }
