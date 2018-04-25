@@ -6,18 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
-import java.util.Scanner;
->>>>>>> branch 'master' of https://github.com/vackjose/FinalProject.git
 
+import java.util.Scanner;
 public class Database {
 	public static Connection conn;
 	public static String sql = "";
 
 	public static void main(String[] args) throws Exception {
 		getConnection();
-<<<<<<< HEAD
 
 		// INSERT DATA
 		try {
@@ -31,10 +27,7 @@ public class Database {
 			ex.printStackTrace();
 			System.out.println("There is an error");
 		}
-=======
->>>>>>> branch 'master' of https://github.com/vackjose/FinalProject.git
-		
-<<<<<<< HEAD
+
 		// UPDATE DATA
 		try {
 
@@ -47,15 +40,12 @@ public class Database {
 			ex.printStackTrace();
 			System.out.println("There is an error");
 		}
-=======
 		Scanner input = new Scanner(System.in);
 		sql = input.nextLine(); 
->>>>>>> branch 'master' of https://github.com/vackjose/FinalProject.git
 		
 		if (sql.contains("insert"))
 			Insert();
 		
-<<<<<<< HEAD
 		//SELECT DATA
 		try {
 
@@ -72,7 +62,6 @@ public class Database {
 			ex.printStackTrace();
 			System.out.println("There is an error");
 		}
-=======
 		if (sql.contains("update"))
 			Update();
 		
@@ -82,7 +71,6 @@ public class Database {
 		if (sql.contains("select"))
 			Select();
 				
->>>>>>> branch 'master' of https://github.com/vackjose/FinalProject.git
 	}
 
 	public static Connection getConnection() throws Exception {
@@ -106,8 +94,7 @@ public class Database {
 		return null;
 	}
 	
-<<<<<<< HEAD
-=======
+
 	public static void Insert() {
 		// INSERT DATA
 				try {
@@ -175,7 +162,6 @@ public class Database {
 				}
 	}
 	
->>>>>>> branch 'master' of https://github.com/vackjose/FinalProject.git
 
 
 }
