@@ -20,7 +20,7 @@ import application.CreateAccount;
 public class Main extends Application {
 	
 	Stage window;
-	Scene login, newAccount;
+	Scene login, newAccount, flightReservation;
 
 	
 	public static void main (String[] args) {	
