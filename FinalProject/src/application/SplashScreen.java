@@ -34,7 +34,7 @@ public class SplashScreen extends Application {
 		window.setScene(splash);
 		window.setTitle("Loading");
 		window.show();
-		window.close();
+		
 
 	}
 }
