@@ -122,9 +122,20 @@ public class Main extends Application {
 	 		newAccount = new Scene(gridPane1, 700, 450);
 	 	
 	 	// Actions for buttons
-	 		CreateAccount.btCreateAccount.setOnAction(e -> CreateAccount.createAccount());
+	 		CreateAccount.btCreateAccount.setOnAction(e -> isInt(User.getTfZipCode(), User.getTfZipCode().getText()));
+
 		    
 		    
 	}
+	public boolean isInt(TextField input, String message) {
+		try {
+			int agw = Integer.parseInt(input.getText());
+			return true;
+		} catch(NumberFormatException e) {
+			System.out.println("Error: " + message + " is not valid");
+			return false;
+		}
+	}
+	
 
 }
